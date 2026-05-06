@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './components/Home/Home';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>¡Bienvenido a LostPet!</Text>
+      <Text style={styles.textp}>¡Bienvenido a LostPet!</Text>
+      <Home />
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +15,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#202124',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  textp: {
+    color: '#F1F3F4',
   },
 });
