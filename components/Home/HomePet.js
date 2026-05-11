@@ -1,9 +1,9 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Button } from 'react-native';
 import { COLORS, SIZESFONT } from '../../constants/Theme';
 import { globalStyles } from '../../styles/globalStyles';
 import { Image as ExpoImage } from 'expo-image';
 
-const Home = () => {
+const HomePet = () => {
 
     return (
         <View style={globalStyles.container}>
@@ -15,9 +15,15 @@ const Home = () => {
                     transition={1000}
                     cachePolicy='memory-disk'
                 />
-                <Text style={styles.textp}>
-                    Este es el home, muajajja
-                </Text>
+                <View style={styles.internoCard}>
+                    <Text style={styles.textp}>Nombre: Emma</Text>
+                    <Text style={styles.textp}>Raza: Salchicha</Text>
+                    <Text style={styles.textp}>Cumpleaños: 28 Octubre</Text>
+                    <Button title="Ir a la ficha"></Button>
+                </View>
+            </View>
+            <View style={globalStyles.buttonRegister}>
+                <Button title="Resgistar mascota"></Button>
             </View>
         </View>
     )
@@ -32,7 +38,10 @@ const styles = StyleSheet.create({
         width: 150,
         height: 200,
         borderRadius: 6
+    },
+    internoCard: {
+        paddingLeft: 10
     }
 });
 
-export default Home
+export default HomePet
