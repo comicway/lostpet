@@ -5,6 +5,9 @@ const RegisterPet = () => {
     return (
         <>
             <KeyboardAvoidingView>
+                <View>
+                    <Text>Hello</Text>
+                </View>
 
             </KeyboardAvoidingView>
         </>

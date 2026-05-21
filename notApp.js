@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import HomePet from './components/Home/HomePet';
+import HomePet from './app';
+
 
 export default function App() {
+
   return (
     <View style={styles.container}>
       <HomePet />
