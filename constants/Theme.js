@@ -4,5 +4,7 @@ export const SIZESFONT = {
 
 export const COLORS = {
     font: '#F1F3F4',
-    border: '#37393A'
+    border: '#37393A',
+    background: '#1B1C1E',
+    placeholder: '#BDC1C6'
 }

@@ -12,7 +12,7 @@ const HomePet = () => {
 
     const goRegisterPet = () => {
 
-        router.push('./register')
+        router.push('/register/registerPet')
 
     };
 
