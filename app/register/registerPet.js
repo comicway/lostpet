@@ -1,17 +1,18 @@
-import { Button, KeyboardAvoidingView, TextInput, StyleSheet, View, Text, Platform, TouchableOpacity } from "react-native";
+import { Button, KeyboardAvoidingView, TextInput, StyleSheet, View, Text, Platform, TouchableOpacity, ScrollView } from "react-native";
 import { useState, useRef } from "react";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { globalStyles } from '../../styles/globalStyles.js';
 import { COLORS, SIZESFONT } from '../../constants/Theme';
 
-const RegisterPet = () => {
+const RegisterPet = ({ onGuardar }) => {
 
   const [form, setForm] = useState({
     nombre: '',
     raza: '',
     peso: '',
     color: '',
-    fecha: new Date()
+    fecha: new Date(),
+    microchip: ''
   });
 
   const [showPicker, setShowPicker] = useState(false);
@@ -38,76 +39,103 @@ const RegisterPet = () => {
   const razaRef = useRef(null);
   const pesoRef = useRef(null);
   const colorRef = useRef(null);
+  const chipRef = useRef(null);
+
+  const handleGuardar = () => {
+    // Convertir peso a número antes de enviar
+    const datos = {
+      ...form,
+      // peso: parseFloat(form.precio) || 0,
+    };
+    onGuardar(datos);
+  };
 
   return (
     <>
       <KeyboardAvoidingView style={globalStyles.container}>
-        <View>
-          <Text style={styles.textp}>Hello</Text>
-        </View>
-        <View style={styles.inputBox}>
-          <TextInput
-            style={styles.input}
-            placeholder="Nombre de la mascota"
-            placeholderTextColor="#BDC1C6"
-            value={form.nombre}
-            onChangeText={(v) => actualizar('nombre', v)}
-            autoCapitalize="words"
-            returnKeyType="next"
-            submitBehavior="submit"
-            onSubmitEditing={() => razaRef.current.focus()}
-          />
-          <TextInput
-            ref={razaRef}
-            style={styles.input}
-            placeholder="Raza"
-            placeholderTextColor="#BDC1C6"
-            value={form.raza}
-            onChangeText={(v) => actualizar('raza', v)}
-            autoCapitalize="words"
-            returnKeyType="next"
-            submitBehavior="submit"
-            onSubmitEditing={() => pesoRef.current.focus()}
-          />
-          <TextInput
-            ref={pesoRef}
-            style={styles.input}
-            placeholder="Peso"
-            placeholderTextColor="#BDC1C6"
-            value={form.peso}
-            onChangeText={(v) => actualizar('peso', v)}
-            keyboardType="decimal-pad"
-            returnKeyType="next"
-            submitBehavior="submit"
-            onSubmitEditing={() => colorRef.current.focus()}
-          />
-          <TextInput
-            ref={colorRef}
-            style={styles.input}
-            placeholder="Color"
-            placeholderTextColor="#BDC1C6"
-            value={form.color}
-            onChangeText={(v) => actualizar('color', v)}
-            autoCapitalize="words"
-            submitBehavior="blurAndSubmit"
-            returnKeyType="done"
-            onSubmitEditing={() => setShowPicker(true)}
-          />
-          <TouchableOpacity
-            style={styles.input}
-            onPress={() => setShowPicker(true)}
-          >
-            <Text style={styles.textp}>📅 {fechaFormateada}</Text>
-          </TouchableOpacity>
-          {showPicker && (
-            <DateTimePicker
-              value={form.fecha}
-              mode="date"
-              display="default"
-              onChange={changeDate}
+        <ScrollView>
+          <View>
+            <Text style={styles.textp}>Registra aqui tu mascota</Text>
+          </View>
+          <View style={styles.inputBox}>
+            <TextInput
+              style={styles.input}
+              placeholder="Nombre de la mascota"
+              placeholderTextColor="#BDC1C6"
+              value={form.nombre}
+              onChangeText={(v) => actualizar('nombre', v)}
+              autoCapitalize="words"
+              returnKeyType="next"
+              submitBehavior="submit"
+              onSubmitEditing={() => razaRef.current.focus()}
             />
-          )}
-        </View>
+            <TextInput
+              ref={razaRef}
+              style={styles.input}
+              placeholder="Raza"
+              placeholderTextColor="#BDC1C6"
+              value={form.raza}
+              onChangeText={(v) => actualizar('raza', v)}
+              autoCapitalize="words"
+              returnKeyType="next"
+              submitBehavior="submit"
+              onSubmitEditing={() => pesoRef.current.focus()}
+            />
+            <TextInput
+              ref={pesoRef}
+              style={styles.input}
+              placeholder="Peso"
+              placeholderTextColor="#BDC1C6"
+              value={form.peso}
+              onChangeText={(v) => actualizar('peso', v)}
+              keyboardType="decimal-pad"
+              returnKeyType="next"
+              submitBehavior="submit"
+              onSubmitEditing={() => colorRef.current.focus()}
+            />
+            <TextInput
+              ref={colorRef}
+              style={styles.input}
+              placeholder="Color"
+              placeholderTextColor="#BDC1C6"
+              value={form.color}
+              onChangeText={(v) => actualizar('color', v)}
+              autoCapitalize="words"
+              returnKeyType="next"
+              submitBehavior="submit"
+              onSubmitEditing={() => chipRef.current.focus()}
+            />
+            <TextInput
+              ref={chipRef}
+              style={styles.input}
+              placeholder="Numero de Chip"
+              placeholderTextColor="#BDC1C6"
+              value={form.microchip}
+              onChangeText={(v) => actualizar('microchip', v)}
+              keyboardType="decimal-pad"
+              submitBehavior="blurAndSubmit"
+              returnKeyType="done"
+              onSubmitEditing={() => setShowPicker(true)}
+            />
+            <TouchableOpacity
+              style={styles.input}
+              onPress={() => setShowPicker(true)}
+            >
+              <Text style={styles.textp}>📅 {fechaFormateada}</Text>
+            </TouchableOpacity>
+            {showPicker && (
+              <DateTimePicker
+                value={form.fecha}
+                mode="date"
+                display="default"
+                onChange={changeDate}
+              />
+            )}
+          </View>
+          <TouchableOpacity style={globalStyles.buttonSave} onPress={handleGuardar}>
+            <Text style={styles.textp}>Guardar Mascota 💾</Text>
+          </TouchableOpacity>
+        </ScrollView>
       </KeyboardAvoidingView>
     </>
   )
