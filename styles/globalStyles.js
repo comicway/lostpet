@@ -20,8 +20,18 @@ export const globalStyles = StyleSheet.create({
     },
     buttonRegister: {
         position: 'absolute',
-        bottom: 20,
+        bottom: 50, /* Aqui es 20 tambien, con 50 se puede dar click al boton */
         left: 20,
         right: 20,
+        backgroundColor: '#37393A',
+    },
+    buttonSave: {
+        height: 50,
+        backgroundColor: '#37393A',
+        borderRadius: 8,
+        paddingHorizontal: 15,
+        width: '100%',
+        justifyContent: 'center', // Centra verticalmente
+        alignItems: 'center' // Centra horizontalmente
     }
 });   
