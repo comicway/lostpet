@@ -33,5 +33,11 @@ export const globalStyles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center', // Centra verticalmente
         alignItems: 'center' // Centra horizontalmente
+    },
+    buttonText: {
+        color: '#F1F3F4',
+        fontSize: 15,
+        fontWeight: 'bold',
+        textAlign: 'center',
     }
 });   
