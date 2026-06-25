@@ -4,7 +4,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { globalStyles } from '../../styles/globalStyles.js';
 import { COLORS, SIZESFONT } from '../../constants/Theme';
 
-const RegisterPet = ({ onGuardar }) => {
+const RegisterPet = () => {
 
   const [form, setForm] = useState({
     nombre: '',
@@ -42,12 +42,45 @@ const RegisterPet = ({ onGuardar }) => {
   const chipRef = useRef(null);
 
   const handleGuardar = () => {
-    // Convertir peso a número antes de enviar
+
     const datos = {
       ...form,
-      // peso: parseFloat(form.precio) || 0,
+      nombre: form.nombre.trim(),
+      raza: form.raza.trim(),
+      peso: parseFloat(form.peso) || 0, // Aseguramos que sea número
+      // El microchip también debería ser tratado según tu base de datos
+      color: form.color.trim(),
+      fecha: form.fecha.toISOString(),
+      microchip: parseFloat(form.microchip) || 0,
     };
-    onGuardar(datos);
+
+    if (!form.nombre) {
+      alert("Por favor, ingresa el nombre de la mascota");
+      return; // Detiene la ejecución si falta el nombre
+    }
+    if (!form.raza) {
+      alert("Por favor, ingresa la raza de la mascota");
+      return; // Detiene la ejecución si falta la raza
+    }
+    if (!form.peso) {
+      alert("Por favor, ingresa el peso de la mascota");
+      return; // Detiene la ejecución si falta el peso
+    }
+    if (!form.color) {
+      alert("Por favor, ingresa el color de la mascota");
+      return; // Detiene la ejecución si falta el color
+    }
+    if (!form.fecha) {
+      alert("Por favor, ingresa la fecha de nacimiento de la mascota");
+      return; // Detiene la ejecución si falta la fecha
+    }
+    if (!form.microchip) {
+      alert("Por favor, ingresa el número de chip de la mascota");
+      return; // Detiene la ejecución si falta el número de chip
+    }
+    console.log("Datos listos para enviar:", datos);
+    // AQUÍ iría tu función de Firebase/API
+
   };
 
   return (
@@ -133,7 +166,7 @@ const RegisterPet = ({ onGuardar }) => {
             )}
           </View>
           <TouchableOpacity style={globalStyles.buttonSave} onPress={handleGuardar}>
-            <Text style={styles.textp}>Guardar Mascota 💾</Text>
+            <Text style={globalStyles.buttonText}>Guardar Mascota 💾</Text>
           </TouchableOpacity>
         </ScrollView>
       </KeyboardAvoidingView>
