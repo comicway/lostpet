@@ -3,8 +3,7 @@ import { COLORS, SIZESFONT } from '../constants/Theme';
 import { globalStyles } from '../styles/globalStyles';
 import { Image as ExpoImage } from 'expo-image';
 import { Link, useRouter } from 'expo-router'
-
-
+import AppBar from "./AppBar/AppBar";
 
 const HomePet = () => {
 
@@ -16,8 +15,10 @@ const HomePet = () => {
 
     };
 
-    return (
-        <View style={globalStyles.container}>
+  return (
+    <>
+    <AppBar />
+    <View style={globalStyles.container}>
             <View style={globalStyles.cardHome}>
                 <ExpoImage
                     source={require('../assets/emma.png')}
@@ -34,9 +35,10 @@ const HomePet = () => {
                 </View>
             </View>
             <View style={globalStyles.buttonRegister}>
-                <Button title="Resgistar mascota" onPress={goRegisterPet}></Button>
+                <Button title="Registrar mascota" onPress={goRegisterPet}></Button>
             </View>
-        </View>
+      </View>
+    </>
     )
 }
 
