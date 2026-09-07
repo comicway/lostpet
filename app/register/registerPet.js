@@ -1,6 +1,7 @@
 import { KeyboardAvoidingView, TextInput, StyleSheet, View, Text, Platform, TouchableOpacity, ScrollView } from "react-native";
 import { useState, useRef } from "react";
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { globalStyles } from '../../styles/globalStyles.js';
 import { COLORS, SIZESFONT } from '../../constants/Theme';
 import { useForm, Controller } from 'react-hook-form';
@@ -63,9 +64,13 @@ const RegisterPet = () => {
     setShowDatePicker(!showDatePicker);
   };
 
+  const insets = useSafeAreaInsets();
+
   return (
     <>
-      <AppBar/>
+      <View style={[{ paddingTop: insets.top }]}>
+        <AppBar />
+      </View>
       <KeyboardAvoidingView style={globalStyles.container}>
         <ScrollView>
           <View>
