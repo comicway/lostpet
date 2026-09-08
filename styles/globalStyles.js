@@ -7,7 +7,6 @@ export const globalStyles = StyleSheet.create({
         padding: 10,
         backgroundColor: '#202124'
     },
-
   cardHome: {
       flexDirection: 'row',
       justifyContent: 'flex-start',
