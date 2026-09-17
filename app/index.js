@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Image as ExpoImage } from 'expo-image';
 import { Link, useRouter } from 'expo-router'
 import AppBar from "./AppBar/AppBar";
+import FabMenu from "./FabMenu/FabMenu";
 
 const HomePet = () => {
 
@@ -20,6 +21,7 @@ const HomePet = () => {
 
   return (
     <>
+      <FabMenu />
     <View style={[{ paddingTop: insets.top }]}>
       <AppBar />
     </View>
