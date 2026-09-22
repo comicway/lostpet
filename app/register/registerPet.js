@@ -8,6 +8,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { productoSchema } from '../../schemas/registerPetSchema';
 import AppBar from '../AppBar/AppBar.js';
+import FabMenu from '../FabMenu/FabMenu.js';
 
 const RegisterPet = () => {
 
@@ -212,6 +213,7 @@ const RegisterPet = () => {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
+      <FabMenu />
     </>
   );
 }

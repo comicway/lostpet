@@ -21,11 +21,11 @@ const HomePet = () => {
 
   return (
     <>
-      <FabMenu />
+
     <View style={[{ paddingTop: insets.top }]}>
       <AppBar />
     </View>
-    <View style={globalStyles.container}>
+      <View style={globalStyles.container}>
             <View style={globalStyles.cardHome}>
                 <ExpoImage
                     source={require('../assets/emma.png')}
@@ -43,10 +43,8 @@ const HomePet = () => {
                     </View>
                 </View>
             </View>
-            <View style={globalStyles.buttonRegister}>
-                <Button title="Registrar mascota" onPress={goRegisterPet}></Button>
-            </View>
       </View>
+      <FabMenu />
     </>
     )
 }
