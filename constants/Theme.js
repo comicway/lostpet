@@ -1,6 +1,8 @@
 export const SIZESFONT = {
   paragraph: 13,
   button: 16,
+  h1: 20,
+  h2: 17,
 };
 
 export const COLORS = {
