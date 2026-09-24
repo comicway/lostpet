@@ -11,9 +11,9 @@ const HomePet = () => {
 
     const router = useRouter();
 
-    const goRegisterPet = () => {
+    const goUserPet = () => {
 
-        router.push('/register/registerPet')
+        router.push('/UserPet/UserPet')
 
     };
 
@@ -39,7 +39,7 @@ const HomePet = () => {
                     <Text style={styles.textp}>Raza: Salchicha</Text>
                     <Text style={styles.textp}>Cumpleaños: 28 Agosto</Text>
                     <View style={globalStyles.buttonFicha}>
-                      <Button title="Ir a la ficha"></Button>
+                      <Button title="Ir a la ficha" onPress={goUserPet}></Button>
                     </View>
                 </View>
             </View>
@@ -48,6 +48,8 @@ const HomePet = () => {
     </>
     )
 }
+
+export default HomePet
 
 const styles = StyleSheet.create({
     textp: {
@@ -63,5 +65,3 @@ const styles = StyleSheet.create({
         paddingLeft: 10
     }
 });
-
-export default HomePet
