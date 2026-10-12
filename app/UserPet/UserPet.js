@@ -2,8 +2,8 @@ import { Text, View, StyleSheet, Button } from 'react-native';
 import AppBar from '../AppBar/AppBar'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { globalStyles } from '../../styles/globalStyles';
-import { COLORS, SIZESFONT } from '../../constants/Theme';
 import { Image as ExpoImage } from 'expo-image';
+import FabMenu from '../FabMenu/FabMenu';
 
 const UserPet = () => {
 
@@ -35,12 +35,13 @@ const UserPet = () => {
         </View>
         <View style={globalStyles.cardOwner}>
           <Text style={globalStyles.textpH1}>Datos del dueño</Text>
-          <Text style={globalStyles.textp}>Edad: 4 años</Text>
-          <Text style={globalStyles.textp}>Peso: 8 kg</Text>
-          <Text style={globalStyles.textp}>Color: Marrón</Text>
-          <Text style={globalStyles.textp}>Cumpleaños: 23/04/26</Text>
+          <Text style={globalStyles.textp}>Nombre: Moises</Text>
+          <Text style={globalStyles.textp}>Apellido: Contreras</Text>
+          <Text style={globalStyles.textp}>Telefono: 5555677</Text>
+          <Text style={globalStyles.textp}>Email: elemail@gmail.com</Text>
         </View>
       </View>
+      <FabMenu />
     </>
     );
 };
