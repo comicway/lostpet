@@ -2,14 +2,14 @@ import { StyleSheet } from "react-native";
 import { COLORS, SIZESFONT } from "../constants/Theme";
 export const globalStyles = StyleSheet.create({
 
-    container: {
-        flex: 1,
-        padding: 10,
-        backgroundColor: '#202124'
+  container: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: '#202124',
   },
   containerCenter: {
-      flex: 1,
-      padding: 10,
+    flex: 1,
+    padding: 10,
     backgroundColor: '#202124',
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -181,5 +181,108 @@ export const globalStyles = StyleSheet.create({
     paddingTop: 10,
     paddingLeft:20,
     marginTop: 30,
+  },
+  // RecentLocations
+  cardLocations: {
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
+      backgroundColor: '#1B1C1E',
+      borderRadius: 6,
+      width: '100%',
+      borderColor: '#37393A',
+      borderWidth: 1,
+    paddingBottom: 20,
+  },
+  interLocations: {
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  // Location
+  mapLocation: {
+    width: '100%',
+  },
+  petLocations: {
+    paddingLeft: 20,
+    flex: 2,
+  },
+  cardMap: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#1B1C1E',
+    borderRadius: 6,
+    width: '100%',
+    borderColor: '#37393A',
+    borderWidth: 1,
+    marginTop: 20,
+    marginBottom: 100,
+  },
+  // CodeQR
+  containerQR: {
+    flex: 1,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingHorizontal: 10,
+    backgroundColor: '#202124',
+  },
+  innerContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    paddingBottom: 20,
+  },
+  cardQR: {
+    width: '48%',
+    backgroundColor: '#1B1C1E',
+    borderRadius: 6,
+    borderColor: '#37393A',
+    borderWidth: 1,
+    paddingBottom: 15,
+    marginBottom: 15,
+    overflow: 'hidden',
+  },
+  petLocationsQR: {
+    paddingHorizontal: 12,
+    paddingTop: 8,
+  },
+  // InterQR
+  cardInterQR: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#1B1C1E',
+    borderRadius: 6,
+    width: '100%',
+    borderColor: '#37393A',
+    borderWidth: 1,
+    paddingBottom: 20,
+  },
+  // ShareLocation
+  cardShare: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    backgroundColor: '#1B1C1E',
+    borderRadius: 6,
+    width: '100%',
+    borderColor: '#37393A',
+    borderWidth: 1,
+    padding: 20,
+  },
+  barButton: {
+    flexDirection: 'row',
+    justifyContent: 'spca-between',
+  },
+  buttonYes: {
+    height: 50,
+    backgroundColor: '#37393A',
+    borderRadius: 8,
+    width: '47%',
+    paddingHorizontal: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+    marginLeft: 5,
+    marginRight: 5,
   },
 });

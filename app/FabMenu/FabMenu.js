@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { COLORS, SIZESFONT } from '../../constants/Theme';
+import { View, Text, TouchableOpacity } from "react-native";
 import { globalStyles } from "../../styles/globalStyles";
 import { MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router'
@@ -16,9 +15,19 @@ const FabMenu = () => {
   const router = useRouter();
 
   const goRegisterPet = () => {
+    router.push('/register/registerPet')
+  };
 
-      router.push('/register/registerPet')
+  const goRecentLocations = () => {
+    router.push('/RecentLocations/RecentLocations')
+  };
 
+  const goHome = () => {
+    router.push('/')
+  };
+
+  const goCodeQR = () => {
+    router.push('/CodeQR/CodeQR')
   };
 
   return (
@@ -39,11 +48,14 @@ const FabMenu = () => {
           style={[globalStyles.menuitem, { bottom: 100 }]} onPress={goRegisterPet}>
           <Text style={globalStyles.buttonText}>Agregar Mascota</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[globalStyles.menuitem, { bottom: 160 }]} onPress={() => handleFab()}>
+        <TouchableOpacity style={[globalStyles.menuitem, { bottom: 160 }]} onPress={goCodeQR}>
           <Text style={globalStyles.buttonText}>Ver Código Qr</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[globalStyles.menuitem, { bottom: 220 }]} onPress={() => handleFab()}>
+        <TouchableOpacity style={[globalStyles.menuitem, { bottom: 220 }]} onPress={goRecentLocations}>
           <Text style={globalStyles.buttonText}>Ubicaciones recientes</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[globalStyles.menuitem, { bottom: 280 }]} onPress={goHome}>
+          <Text style={globalStyles.buttonText}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={globalStyles.fabclose} onPress={() => handleFab()}>
           <MaterialIcons
