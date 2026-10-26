@@ -3,28 +3,33 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "start": "npx expo start -c",
+    "android": "npx expo start --android",
+    "ios": "npx expo start --ios",
+    "web": "npx expo start --web"
   },
   "dependencies": {
+    "@expo/config-plugins": "^58.0.9",
+    "@expo/vector-icons": "^15.1.1",
     "@hookform/resolvers": "^5.4.0",
-    "@react-native-community/datetimepicker": "8.4.4",
-    "expo": "~54.0.37",
-    "expo-constants": "~18.0.14",
+    "@react-native-community/datetimepicker": "^8.1.1",
+    "expo": "^58.0.13",
+    "expo-constants": "^58.0.12",
     "expo-image": "~3.0.11",
-    "expo-linking": "~8.0.12",
-    "expo-router": "~6.0.23",
+    "expo-linking": "^58.0.13",
+    "expo-router": "^58.0.22",
     "expo-status-bar": "~3.0.9",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
     "react-hook-form": "^7.80.0",
-    "react-native": "0.81.5",
+    "react-native": "0.88.0",
     "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0",
     "react-native-web": "^0.21.0",
     "zod": "^4.4.3"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^5.0.3"
+  }
 }

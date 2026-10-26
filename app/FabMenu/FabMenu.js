@@ -15,7 +15,7 @@ const FabMenu = () => {
   const router = useRouter();
 
   const goRegisterPet = () => {
-    router.push('/register/registerPet')
+    router.push('/Register/RegisterPet')
   };
 
   const goRecentLocations = () => {

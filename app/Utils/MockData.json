@@ -1,0 +1,24 @@
+[
+  {
+    "nombre": "Emma",
+    "raza": "Salchisha",
+    "peso": "6",
+    "color": "Marrón",
+    "microchip": "1234567890",
+    "fechaNacimiento": "2025-08-28",
+    "sterilized": true,
+    "sex": "Femenino",
+    "img": "https://raw.githubusercontent.com/comicway/lostpet/fc0b7158cb49646763ba34bfdee43d13567f22a7/assets/emma.png"
+  },
+  {
+    "nombre": "Estrella",
+    "raza": "Golden",
+    "peso": "12",
+    "color": "Dorado",
+    "microchip": "0987654321",
+    "fechaNacimiento": "2025-08-28",
+    "sterilized": false,
+    "sex": "Femenino",
+    "img": "https://raw.githubusercontent.com/comicway/lostpet/fc0b7158cb49646763ba34bfdee43d13567f22a7/assets/emma.png"
+  }
+]

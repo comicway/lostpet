@@ -27,6 +27,7 @@ export const globalStyles = StyleSheet.create({
       paddingTop: 10,
       paddingBottom: 10,
       paddingRight: 10,
+      marginTop: 15,
   },
   buttonFicha: {
     flex: 1,
