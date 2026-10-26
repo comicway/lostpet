@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text } from "react-native";
-import { globalStyles } from "../../styles/globalStyles";
-import { COLORS, SIZESFONT } from '../../constants/Theme';
+import { globalStyles } from '@/styles/globalStyles'
+import { COLORS, SIZESFONT } from '@/constants/Theme';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from 'expo-router';
 

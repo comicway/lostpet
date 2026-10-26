@@ -1,11 +1,13 @@
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { COLORS, SIZESFONT } from '../constants/Theme';
-import { globalStyles } from '../styles/globalStyles';
+import { globalStyles } from '@/styles/globalStyles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Image as ExpoImage } from 'expo-image';
-import { Link, useRouter } from 'expo-router'
+import { useRouter } from 'expo-router';
 import AppBar from "./AppBar/AppBar";
 import FabMenu from "./FabMenu/FabMenu";
+import mascotasMock from './Utils/MockData.json';
+import CardHome from './CardHome/CardHome';
+
 
 const HomePet = () => {
 
@@ -24,25 +26,11 @@ const HomePet = () => {
 
     <View style={[{ paddingTop: insets.top }]}>
       <AppBar />
-    </View>
+      </View>
       <View style={globalStyles.container}>
-            <View style={globalStyles.cardHome}>
-                <ExpoImage
-                    source={require('../assets/emma.png')}
-                    style={styles.img}
-                    contentFit='cover'
-                    transition={1000}
-                    cachePolicy='memory-disk'
-                />
-                <View style={styles.internoCard}>
-                    <Text style={styles.textp}>Nombre: Emma</Text>
-                    <Text style={styles.textp}>Raza: Salchicha</Text>
-                    <Text style={styles.textp}>Cumpleaños: 28 Agosto</Text>
-                    <View style={globalStyles.buttonFicha}>
-                      <Button title="Ir a la ficha" onPress={goUserPet}></Button>
-                    </View>
-                </View>
-            </View>
+        {mascotasMock.map((mascota, index) => (
+              <CardHome key={index} mascot={mascota} />
+            ))}
       </View>
       <FabMenu />
     </>

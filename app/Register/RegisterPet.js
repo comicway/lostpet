@@ -1,32 +1,41 @@
-import { KeyboardAvoidingView, TextInput, StyleSheet, View, Text, Platform, TouchableOpacity, ScrollView } from "react-native";
+import {
+  KeyboardAvoidingView,
+  TextInput,
+  StyleSheet,
+  View,
+  Text,
+  Platform,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { useState, useRef } from "react";
-import DateTimePicker from '@react-native-community/datetimepicker';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { globalStyles } from '../../styles/globalStyles.js';
-import { COLORS, SIZESFONT } from '../../constants/Theme';
-import { useForm, Controller } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { productoSchema } from '../../schemas/registerPetSchema';
-import AppBar from '../AppBar/AppBar.js';
-import FabMenu from '../FabMenu/FabMenu.js';
+import DateTimePicker from "@react-native-community/datetimepicker";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { globalStyles } from "../../styles/globalStyles.js";
+import { COLORS, SIZESFONT } from "../../constants/Theme";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { productoSchema } from "../../schemas/registerPetSchema";
+import AppBar from "../AppBar/AppBar.js";
+import FabMenu from "../FabMenu/FabMenu.js";
 
 const RegisterPet = () => {
 
   const {
-    control,          // Conecta cada campo al formulario
-    handleSubmit,     // Envuelve tu función de envío con validación
+    control, // Conecta cada campo al formulario
+    handleSubmit, // Envuelve tu función de envío con validación
     formState: { errors, isSubmitting }, // Estado del formulario
-    reset             // Limpia el formulario
+    reset, // Limpia el formulario
   } = useForm({
     resolver: zodResolver(productoSchema),
     defaultValues: {
-      nombre: '',
-      raza: '',
-      peso: '',
-      color: '',
+      nombre: "",
+      raza: "",
+      peso: "",
+      color: "",
       fechaNacimiento: new Date().toISOString(),
-      microchip: '',
-    }
+      microchip: "",
+    },
   });
 
   const razaRef = useRef(null);
@@ -50,13 +59,13 @@ const RegisterPet = () => {
 
   // Función para manejar el cambio de fecha en el DateTimePicker
   const handleDateChange = (event, selectedDate) => {
-    if (Platform.OS === 'android') {
+    if (Platform.OS === "android") {
       setShowDatePicker(false);
     }
     if (selectedDate) {
       setDate(selectedDate);
       // Actualizar el valor de fecha en el formulario
-      control._updateField('fecha', { value: selectedDate });
+      control._updateField("fecha", { value: selectedDate });
     }
   };
 
@@ -87,9 +96,9 @@ const RegisterPet = () => {
                 style={[styles.input, errors.nombre && styles.inputError]}
                 placeholder="Nombre de la mascota"
                 placeholderTextColor="#BDC1C6"
-                onBlur={onBlur}           // Valida al perder el foco
+                onBlur={onBlur} // Valida al perder el foco
                 onChangeText={onChange}
-                value={value}
+                value={productoSchema.nombre}
                 autoCapitalize="words"
                 returnKeyType="next"
                 submitBehavior="submit"
@@ -107,7 +116,7 @@ const RegisterPet = () => {
                 placeholder="Raza"
                 placeholderTextColor="#BDC1C6"
                 onBlur={onBlur}
-                value={value}
+                value={productoSchema.raza}
                 onChangeText={onChange}
                 autoCapitalize="words"
                 returnKeyType="next"
@@ -117,28 +126,28 @@ const RegisterPet = () => {
             )}
           />
           <Controller
-                      control={control}
-                      name="peso"
-                      render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                          ref={pesoRef}
-                          style={[styles.input, errors.peso && styles.inputError]}
-                          placeholder="Peso"
-                          placeholderTextColor="#BDC1C6"
-                          onBlur={onBlur}
-                          onChangeText={(text) => {
-                            // Asegurar que el valor sea un número o vacío
-                            const numericValue = text.replace(/[^0-9]/g, '');
-                            onChange(numericValue);
-                          }}
-                          value={value}
-                          keyboardType="numeric"
-                          returnKeyType="next"
-                          submitBehavior="submit"
-                          onSubmitEditing={() => colorRef.current?.focus()}
-                        />
-                      )}
-                    />
+            control={control}
+            name="peso"
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                ref={pesoRef}
+                style={[styles.input, errors.peso && styles.inputError]}
+                placeholder="Peso"
+                placeholderTextColor="#BDC1C6"
+                onBlur={onBlur}
+                onChangeText={(text) => {
+                  // Asegurar que el valor sea un número o vacío
+                  const numericValue = text.replace(/[^0-9]/g, "");
+                  onChange(numericValue);
+                }}
+                value={productoSchema.peso}
+                keyboardType="numeric"
+                returnKeyType="next"
+                submitBehavior="submit"
+                onSubmitEditing={() => colorRef.current?.focus()}
+              />
+            )}
+          />
           <Controller
             control={control}
             name="color"
@@ -149,7 +158,7 @@ const RegisterPet = () => {
                 placeholder="Color"
                 placeholderTextColor="#BDC1C6"
                 onBlur={onBlur}
-                value={value}
+                value={productoSchema.color}
                 onChangeText={onChange}
                 autoCapitalize="words"
                 returnKeyType="next"
@@ -159,44 +168,54 @@ const RegisterPet = () => {
             )}
           />
           <Controller
-                      control={control}
-                      name="microchip"
-                      render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                          ref={chipRef}
-                          style={[styles.input, errors.microchip && styles.inputError]}
-                          placeholder="Número de Chip"
-                          placeholderTextColor="#BDC1C6"
-                          onBlur={onBlur}
-                          onChangeText={(text) => {
-                            // Asegurar que el valor sea un número o vacío
-                            const numericValue = text.replace(/[^0-9]/g, '');
-                            onChange(numericValue);
-                          }}
-                          value={value}
-                          keyboardType="numeric"
-                          returnKeyType="done"
-                          onSubmitEditing={() => {}}
-                        />
-                      )}
-                    />
+            control={control}
+            name="microchip"
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                ref={chipRef}
+                style={[styles.input, errors.microchip && styles.inputError]}
+                placeholder="Número de Chip"
+                placeholderTextColor="#BDC1C6"
+                onBlur={onBlur}
+                onChangeText={(text) => {
+                  // Asegurar que el valor sea un número o vacío
+                  const numericValue = text.replace(/[^0-9]/g, "");
+                  onChange(numericValue);
+                }}
+                value={productoSchema.microchip}
+                keyboardType="numeric"
+                returnKeyType="done"
+                onSubmitEditing={() => {}}
+              />
+            )}
+          />
           {/* Selector de fecha */}
-          <TouchableOpacity style={styles.dateContainer} onPress={toggleDatePicker}>
+          <TouchableOpacity
+            style={styles.dateContainer}
+            onPress={toggleDatePicker}
+          >
             <Text style={styles.dateFormat}>
-              📅 {date.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })}
+              📅{" "}
+              {date.toLocaleDateString("es-CL", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </Text>
           </TouchableOpacity>
           {/* DateTimePicker */}
           {showDatePicker && (
             <DateTimePicker
-              value={date}
+              value={new Date(productoSchema.fechaNacimiento).toDateString()}
               mode="date"
               display="default"
               onChange={handleDateChange}
             />
           )}
           {/* Mostrar errores de fecha si existen */}
-          {errors.fecha && <Text style={styles.errorText}>{errors.fecha.message}</Text>}
+          {errors.fecha && (
+            <Text style={styles.errorText}>{errors.fecha.message}</Text>
+          )}
           {/* Contenedor del botón para guardar */}
           <View style={styles.buttonContainer}>
             <TouchableOpacity
@@ -205,10 +224,10 @@ const RegisterPet = () => {
               disabled={isSubmitting}
             >
               {isSubmitting ? (
-                             <Text style={styles.buttonText}>Guardando...</Text>
-                           ) : (
-                             <Text style={styles.buttonText}>Guardar Mascota 💾</Text>
-                           )}
+                <Text style={styles.buttonText}>Guardando...</Text>
+              ) : (
+                <Text style={styles.buttonText}>Guardar Mascota 💾</Text>
+              )}
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -216,20 +235,20 @@ const RegisterPet = () => {
       <FabMenu />
     </>
   );
-}
+};
 
 const styles = StyleSheet.create({
   buttonContainer: {
     paddingVertical: 20, // Espaciado vertical
     paddingHorizontal: 15, // Espaciado horizontal
-    alignItems: 'center', // Centrar el botón horizontalmente
-    width: '100%', // Ajustar el ancho del contenedor al 100% de su padre
-    justifyContent: 'center', // Centra los elementos hijos verticalmente
+    alignItems: "center", // Centrar el botón horizontalmente
+    width: "100%", // Ajustar el ancho del contenedor al 100% de su padre
+    justifyContent: "center", // Centra los elementos hijos verticalmente
   },
   inputBox: {
     paddingVertical: 15,
-    alignItems: 'center',
-    width: '100%'
+    alignItems: "center",
+    width: "100%",
   },
   input: {
     borderWidth: 1,
@@ -254,10 +273,10 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     borderWidth: 1,
     borderColor: COLORS.border,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row', // Alinear texto y icono
-    overflow: 'hidden', // Para evitar que se salga el texto del contenedor en iOS
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row", // Alinear texto y icono
+    overflow: "hidden", // Para evitar que se salga el texto del contenedor en iOS
   },
   dateFormat: {
     color: COLORS.font,
@@ -265,14 +284,14 @@ const styles = StyleSheet.create({
     marginLeft: 8, // Espacio entre el icono y el texto
   },
   inputError: {
-    borderColor: '#ff0000', // Estilo para campos con errores
+    borderColor: "#ff0000", // Estilo para campos con errores
   },
   errorText: {
-    color: '#ff0000',
+    color: "#ff0000",
     fontSize: SIZESFONT.bodySmall,
     marginTop: 8, // Espacio entre el campo y el mensaje de error
-    textAlign: 'center',
-  }
+    textAlign: "center",
+  },
 });
 
 export default RegisterPet;
