@@ -28,8 +28,8 @@ const HomePet = () => {
       <AppBar />
       </View>
       <View style={globalStyles.container}>
-        {mascotasMock.map((mascota, index) => (
-              <CardHome key={index} mascot={mascota} />
+        {mascotasMock[0].pets.map((pet, index) => (
+              <CardHome key={index} mascot={pet} />
             ))}
       </View>
       <FabMenu />

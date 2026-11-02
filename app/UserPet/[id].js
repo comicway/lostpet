@@ -4,21 +4,35 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { globalStyles } from "../../styles/globalStyles";
 import FabMenu from "../FabMenu/FabMenu";
 import mascotasMock from "../Utils/MockData.json";
-import UserData from "../Utils/UserData.json";
 import CardUserPet from "../CardUserPet/CardUserPet";
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from "expo-router";
 
 const UserPet = () => {
-
   const insets = useSafeAreaInsets();
 
   const params = useLocalSearchParams();
 
   const { id } = params;
 
-  const pet = mascotasMock.find(p => p.microchip === id);
+  const usuario = mascotasMock.find((u) => u.userId === "1234");
 
-  if (!pet) return<View style={globalStyles.containerCenter}><Text>Mascota no Encontrada</Text></View>;
+  const pet = usuario?.pets.find((pet) => pet.microchip === id);
+
+  console.log("--- Buscando mascota ---");
+  console.log("Usuario:", usuario);
+    console.log("id recibido:", JSON.stringify(id));
+    console.log(
+      "microchips del dueño:",
+      JSON.stringify(usuario?.pets.map((p) => p.microchip))
+    );
+  console.log("mascota encontrada:", pet);
+
+  if (!pet)
+    return (
+      <View style={globalStyles.containerCenter}>
+        <Text>Mascota no Encontrada</Text>
+      </View>
+    );
 
   return (
     <>
@@ -26,7 +40,7 @@ const UserPet = () => {
         <AppBar />
       </View>
       <View style={globalStyles.containerCenter}>
-        <CardUserPet mascot={pet}/>
+        <CardUserPet mascot={pet} owner={usuario} />
       </View>
       <FabMenu />
     </>

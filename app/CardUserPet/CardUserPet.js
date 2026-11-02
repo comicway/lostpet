@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { globalStyles } from "../../styles/globalStyles";
 import { Image as ExpoImage } from "expo-image";
 
-const CardUserPet = ({ mascot }) => {
+const CardUserPet = ({ mascot, owner }) => {
   return (
     <>
       <View style={globalStyles.cardUserPet}>
@@ -26,10 +26,10 @@ const CardUserPet = ({ mascot }) => {
       </View>
       <View style={globalStyles.cardOwner}>
         <Text style={globalStyles.textpH1}>Datos del dueño</Text>
-        <Text style={globalStyles.textp}>Nombre: Moises</Text>
-        <Text style={globalStyles.textp}>Apellido: Contreras</Text>
-        <Text style={globalStyles.textp}>Telefono: 5555677</Text>
-        <Text style={globalStyles.textp}>Email: elemail@gmail.com</Text>
+        <Text style={globalStyles.textp}>Nombre: {owner.nombre}</Text>
+        <Text style={globalStyles.textp}>Apellido: {owner.apellido}</Text>
+        <Text style={globalStyles.textp}>Telefono: {owner.telefono}</Text>
+        <Text style={globalStyles.textp}>Email: {owner.email}</Text>
       </View>
     </>
   );
