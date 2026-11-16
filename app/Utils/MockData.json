@@ -15,7 +15,19 @@
         "fechaNacimiento": "2025-08-28",
         "sterilized": true,
         "sex": "Femenino",
-        "img": "https://raw.githubusercontent.com/comicway/lostpet/refs/heads/main/assets/emma.png"
+        "img": "https://raw.githubusercontent.com/comicway/lostpet/refs/heads/main/assets/emma.png",
+        "locations":[
+          {
+            "coordinate": "-33.427322, -70.622867",
+            "date": "2025-08-28",
+            "place": "H99G+M77 Providencia"
+          },
+          {
+            "coordinate": "-33.380716, -70.631553",
+            "date": "2026-06-20",
+            "place": "J999+P98 Huechuraba"
+          }
+        ]
       },
       {
         "nombre": "Estrella",
@@ -26,7 +38,19 @@
         "fechaNacimiento": "2024-10-15",
         "sterilized": false,
         "sex": "Femenino",
-        "img": "https://raw.githubusercontent.com/comicway/lostpet/refs/heads/main/assets/estrella.png"
+        "img": "https://raw.githubusercontent.com/comicway/lostpet/refs/heads/main/assets/estrella.png",
+        "locations":[
+          {
+            "coordinate": "-33.434149, -70.563332",
+            "date": "2026-06-14",
+            "place": "HC8P+8MV La Reina"
+          },
+          {
+            "coordinate": "-33.570216, -70.683069",
+            "date": "2025-08-28",
+            "place": "C8H8+WQ7 El Bosque"
+          }
+        ]
       }
     ]
   }
