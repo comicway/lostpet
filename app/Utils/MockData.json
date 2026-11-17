@@ -1,11 +1,11 @@
 [
   {
-    "userId":"1234",
+    "userId": "1234",
     "nombre": "Moises",
     "apellido": "Contreras",
     "telefono": "984899905",
     "email": "elmail@gmail.com",
-    "pets":[
+    "pets": [
       {
         "nombre": "Emma",
         "raza": "Salchicha",
@@ -16,16 +16,22 @@
         "sterilized": true,
         "sex": "Femenino",
         "img": "https://raw.githubusercontent.com/comicway/lostpet/refs/heads/main/assets/emma.png",
-        "locations":[
+        "locations": [
           {
-            "coordinate": "-33.427322, -70.622867",
-            "date": "2025-08-28",
-            "place": "H99G+M77 Providencia"
+            "id": "1",
+            "titulo": "Punto 1",
+            "descripcion": "H99G+M77 Providencia",
+            "latitude": -33.427322,
+            "longitude": -70.622867,
+            "date": "2025-08-28"
           },
           {
-            "coordinate": "-33.380716, -70.631553",
-            "date": "2026-06-20",
-            "place": "J999+P98 Huechuraba"
+            "id": "2",
+            "titulo": "Punto 2",
+            "descripcion": "J999+P98 Huechuraba",
+            "latitude": -33.380716,
+            "longitude": -70.631553,
+            "date": "2026-06-20"
           }
         ]
       },
@@ -39,16 +45,22 @@
         "sterilized": false,
         "sex": "Femenino",
         "img": "https://raw.githubusercontent.com/comicway/lostpet/refs/heads/main/assets/estrella.png",
-        "locations":[
+        "locations": [
           {
-            "coordinate": "-33.434149, -70.563332",
-            "date": "2026-06-14",
-            "place": "HC8P+8MV La Reina"
+            "id": "1",
+            "titulo": "Punto 1",
+            "descripcion": "HC8P+8MV La Reina",
+            "latitude": -33.434149,
+            "longitude": -70.563332,
+            "date": "2026-06-14"
           },
           {
-            "coordinate": "-33.570216, -70.683069",
-            "date": "2025-08-28",
-            "place": "C8H8+WQ7 El Bosque"
+            "id": "2",
+            "titulo": "Punto 2",
+            "descripcion": "C8H8+WQ7 El Bosque",
+            "latitude": -33.570216,
+            "longitude": -70.683069,
+            "date": "2025-08-28"
           }
         ]
       }

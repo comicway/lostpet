@@ -23,7 +23,7 @@ const CardLocations = ({mascot}) => {
         />
         <View style={globalStyles.interLocations}>
           <Text style={globalStyles.textpH1}>{mascot.nombre}</Text>
-          <Text style={globalStyles.textpH1}>{mascot.locations[0].place}</Text>
+          <Text style={globalStyles.textpH1}>{mascot.locations[0].descripcion}</Text>
           <Text style={globalStyles.textp}>{mascot.locations[0].date}</Text>
           <TouchableOpacity style={globalStyles.buttonSave} onPress={goLocation}>
             <Text style={globalStyles.buttonText}>Ver</Text>
