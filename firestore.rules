@@ -1,19 +1,14 @@
-rules_version = '3';
+rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /users/{uid} {
       allow read, write: if request.auth != null && request.auth.uid == uid;
       match /pets/{docId} {
         allow read, write: if request.auth != null && request.auth.uid == uid;
+            match /locations/{locId} {
+            allow read : if request.auth != null && request.auth.uid == uid;
       }
     }
   }
+ }
 }
-
-users puede:
-
-- leer solo sus campos
-- modificar solo sus campos
-- no puede modificar su propio id
-- puede modificar los campos de pets que le perteneces a el
-- no puede modificar el id de sus pets
